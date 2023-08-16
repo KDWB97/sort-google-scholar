@@ -126,16 +126,16 @@ def get_year(content):
 def setup_driver():
     try:
         from selenium import webdriver
-        from selenium.webdriver.chrome.options import Options
+        from selenium.webdriver.edge.options import Options
         from selenium.common.exceptions import StaleElementReferenceException
     except Exception as e:
         print(e)
-        print("Please install Selenium and chrome webdriver for manual checking of captchas")
+        print("Please install Selenium and edge webdriver for manual checking of captchas")
 
     print('Loading...')
-    chrome_options = Options()
-    chrome_options.add_argument("disable-infobars")
-    driver = webdriver.Chrome(chrome_options=chrome_options)
+    options = Options()
+    options.add_argument("disable-infobars")
+    driver = webdriver.Edge(options = options)
     return driver
 
 def get_author(content):
